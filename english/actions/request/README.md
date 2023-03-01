@@ -41,14 +41,15 @@ You can also make more complex requests. In that case, the parameter must be a J
 <br>
 <br>
   
-**Example:**
-  
+**Examples:**
+
+Using the Doyo API to get the country from a IP address:  
 
     {
         "request": {
             "method": "POST",
             "url": "https://api.doyo.tech",
-            "token": "abcdefghijk123456",
+            "token": "[insert_your_doyo_api_key_here]",
             "body": {
                 "provider": "countryis",
                 "method": "fromIp",
@@ -66,5 +67,38 @@ You can also make more complex requests. In that case, the parameter must be a J
         "onerror": {
             "action": "section",
             "parameter": "country not found"
+        }
+    }
+
+<br>
+  
+
+Using the Doyo API to get data from a remote MySQL database:
+  
+    {
+        "request": {
+            "method": "POST",
+            "url": "https://api.doyo.tech",
+            "token": "[insert_your_doyo_api_key_here]",
+            "body": {
+                "provider": "mysql",
+                "method": "select",
+                "parameters": {
+                    "select": "*",
+                    "table": "players",
+                    "order_by": "name",
+                    "order_direction": "ASC"
+                }
+            }
+        },
+        "result": "result",
+        "into": "db.players",
+        "onsuccess": {
+            "action": "section",
+            "parameter": "playerlist"
+        },
+        "onerror": {
+            "action": "section",
+            "parameter": "loaderro"
         }
     }
