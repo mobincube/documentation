@@ -44,6 +44,8 @@ Puedes realizar llamadas más complejas. En ese caso, el parámetro debe ser un 
 **Ejemplo:**
   
 
+Uso de Doyo API para obtener el país a partir de una dirección IP:
+
     {
         "request": {
             "method": "POST",
@@ -66,5 +68,38 @@ Puedes realizar llamadas más complejas. En ese caso, el parámetro debe ser un 
         "onerror": {
             "action": "section",
             "parameter": "country not found"
+        }
+    }
+
+<br>
+  
+
+Uso de Doyo API para obtener datos de una base de datos remota MySQL:
+  
+    {
+        "request": {
+            "method": "POST",
+            "url": "https://api.doyo.tech",
+            "token": "[pon_tu_doyo_api_key_aqui]",
+            "body": {
+                "provider": "mysql",
+                "method": "select",
+                "parameters": {
+                    "select": "*",
+                    "table": "players",
+                    "order_by": "name",
+                    "order_direction": "ASC"
+                }
+            }
+        },
+        "result": "result",
+        "into": "db.players",
+        "onsuccess": {
+            "action": "section",
+            "parameter": "playerlist"
+        },
+        "onerror": {
+            "action": "section",
+            "parameter": "loaderro"
         }
     }
