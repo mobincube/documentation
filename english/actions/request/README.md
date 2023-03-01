@@ -102,3 +102,38 @@ Using the Doyo API to get data from a remote MySQL database:
             "parameter": "loaderro"
         }
     }
+
+<br>
+  
+
+Using the Doyo API to write data into a remote MySQL database:
+  
+    {
+        "request": {
+            "method": "POST",
+            "url": "https://api.doyo.tech",
+            "token": "[insert_your_doyo_api_key_here]",
+            "body": {
+                "provider": "mysql",
+                "method": "insert",
+                "parameters": {
+                    "table": "players",
+                    "values": {
+                        "{}": "{}",
+                        "name": "{var.name}",
+                        "team": "{var.team}",
+                        "country": "{var.country}"
+                    }
+                }
+            }
+        },
+        "result": "result",
+        "onsuccess": {
+            "action": "section",
+            "parameter": "playerlist"
+        },
+        "onerror": {
+            "action": "section",
+            "parameter": "loaderro"
+        }
+    }

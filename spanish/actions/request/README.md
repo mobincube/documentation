@@ -103,3 +103,39 @@ Uso de Doyo API para obtener datos de una base de datos remota MySQL:
             "parameter": "loaderro"
         }
     }
+
+  
+<br>
+  
+
+Uso de Doyo API para insertar datos en una base de datos remota MySQL:
+  
+    {
+        "request": {
+            "method": "POST",
+            "url": "https://api.doyo.tech",
+            "token": "[pon_tu_doyo_api_key_aqui]",
+            "body": {
+                "provider": "mysql",
+                "method": "insert",
+                "parameters": {
+                    "table": "players",
+                    "values": {
+                        "{}": "{}",
+                        "name": "{var.name}",
+                        "team": "{var.team}",
+                        "country": "{var.country}"
+                    }
+                }
+            }
+        },
+        "result": "result",
+        "onsuccess": {
+            "action": "section",
+            "parameter": "playerlist"
+        },
+        "onerror": {
+            "action": "section",
+            "parameter": "loaderro"
+        }
+    }
